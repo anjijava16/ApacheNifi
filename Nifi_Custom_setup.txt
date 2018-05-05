@@ -1,0 +1,50 @@
+Apache NIFI Custom Processors:
+======================================
+Step 1: mvn archetype:generate
+
+
+Step 2: nifi
+Step 3: 1
+Choose Number: 25
+groupId: scc
+artifcateId: SCC-processors
+version: 1.0-SnapSHOT
+artificationBaseName: Demo
+package: com.iwinner
+nifiVersion: 1.0
+y:: Y
+
+Step 4: Created 2 folders :Processors(Java)  & nar files
+
+Step 4: MyProcessor 
+
+onTrigger(final ProcessorContext context,ProcessorSession session){
+FlowFile flowFile=session.get()
+if(flowFile==null){
+ return ;
+ }
+ Sysout("Received a Flow File")
+ ## IMP 
+ session.transfer(flowFile.MY_RELATIONSHIP)
+
+}
+
+
+Step 5:
+Check TEst Cases :
+
+Step 6: Check OutSide pom.xml (File )remove snapshot
+
+Step 6: Take inside nar folder inside one take this nar file keep into the lib folder
+
+Step 7: Ecplise Setp
+
+mvn eclipse:eclipse
+
+======================================
+
+
+IMP:
+	
+
+
